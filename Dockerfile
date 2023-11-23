@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM alpine
 
 ENV NODE_OPTIONS='--openssl-legacy-provider'
 
@@ -6,7 +6,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk add nodejs npm nginx
 
-WORKDIR /app
+WORKDIR /app/resume
 COPY . .
 COPY resume.conf /etc/nginx/http.d/default.conf
 
