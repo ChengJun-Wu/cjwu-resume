@@ -6,11 +6,9 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk add nodejs npm nginx
 
-WORKDIR /app/resume
+WORKDIR /app
 COPY . .
 COPY resume.conf /etc/nginx/http.d/default.conf
-
-WORKDIR /app/cjwu-resume
 
 RUN npm config set registry http://registry.npm.taobao.org
 RUN npm install
