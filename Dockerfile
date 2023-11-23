@@ -1,4 +1,4 @@
-FROM apline as builder
+FROM alpine AS builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
