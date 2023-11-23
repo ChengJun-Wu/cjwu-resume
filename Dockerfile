@@ -8,6 +8,7 @@ RUN apk add nodejs npm nginx
 
 WORKDIR /app
 COPY . .
+COPY resume.conf /etc/nginx/http.d/default.conf
 
 WORKDIR /app/cjwu-resume
 
