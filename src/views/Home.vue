@@ -45,7 +45,7 @@
               </div>
               <div class="px-5 mt-2">
                 <div>Golang</div>
-                <Rate :count="8" :value="2" disabled icon="ios-leaf"></Rate>
+                <Rate :count="8" :value="4" disabled icon="ios-leaf"></Rate>
               </div>
               <div class="px-5 mt-5">
                 <img class="icon-large" src="../assets/icons/language.png" /><span class="mx-2 text-large">语言能力</span>
@@ -390,7 +390,7 @@
             <Col span="8">
             </Col>
             <Col span="8" class="d-flex justify-content-center">
-              <span class="pt-4">©2022 wuchengjun</span>
+              <span class="pt-4">©2023 wuchengjun</span>
             </Col>
             <Col span="8" class="d-flex justify-content-end">
               <img class="qrcode" :src="qrcode">
