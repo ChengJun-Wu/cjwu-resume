@@ -1,5 +1,7 @@
 FROM alpine AS builder
 
+ENV NODE_OPTIONS='--openssl-legacy-provider'
+
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk add nodejs npm nginx
