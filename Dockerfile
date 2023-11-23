@@ -17,4 +17,4 @@ RUN npm run build
 
 EXPOSE 80
 
-CMD ["nginx"]
+ENTRYPOINT ["nginx","-g","daemon off;"]
