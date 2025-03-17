@@ -13,10 +13,10 @@
                 <img class="avatar" src="../assets/avatar.png" />
               </div>
               <div class="px-5 mt-5">
-                <img class="icon" src="../assets/icons/age.png" /><span class="mx-2">28岁</span>
+                <img class="icon" src="../assets/icons/age.png" /><span class="mx-2">{{age}}岁</span>
               </div>
               <div class="px-5 mt-2">
-                <img class="icon" src="../assets/icons/working-years.png" /><span class="mx-2">5年工作经验</span>
+                <img class="icon" src="../assets/icons/working-years.png" /><span class="mx-2">{{year}}年工作经验</span>
               </div>
               <div class="px-5 mt-2">
                 <img class="icon" src="../assets/icons/tel.png" /><span class="mx-2">16619771137</span>
@@ -200,7 +200,7 @@
                     </div>
                     <div>
                       <span class="label">S</span>
-                      <span class="mx-1">换到二线城市，技术环境没有那么前沿。</span>
+                      <span class="mx-1">换到二线城市</span>
                     </div>
                     <div>
                       <span class="label">T</span>
@@ -390,7 +390,7 @@
             <Col span="8">
             </Col>
             <Col span="8" class="d-flex justify-content-center">
-              <span class="pt-4">©2023 wuchengjun</span>
+              <span class="pt-4">©{{nowYear}} wuchengjun</span>
             </Col>
             <Col span="8" class="d-flex justify-content-end">
               <img class="qrcode" :src="qrcode">
@@ -404,11 +404,15 @@
 
 <script>
 import QRCode from 'qrcode'
+import moment from 'moment'
 export default {
   name: 'Home',
   data () {
     return {
-      qrcode: ''
+      qrcode: '',
+      age: 0,
+      year: 0,
+      nowYear: 0
     }
   },
   mounted () {
@@ -416,6 +420,13 @@ export default {
       if (err) console.error(err)
       this.qrcode = url
     })
+    const bd = [1994, 7, 28]
+    const birthday = moment(bd)
+    const graduate = moment(bd).add(22, 'y')
+    const now = moment()
+    this.age = now.diff(birthday, 'years')
+    this.year = now.diff(graduate, 'years')
+    this.nowYear = now.format('YYYY')
   },
   methods: {
     toPdf () {
